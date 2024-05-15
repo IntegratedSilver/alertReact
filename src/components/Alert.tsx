@@ -13,8 +13,8 @@ const Alert: React.FC<AlertProps> = ({ message }) => {
 
   return (
     <div>
-      <button className="btn btn-primary" onClick={toggleAlert}>
-        {show ? 'Hide' : 'Show'}
+      <button className="btn btn-warning" onClick={toggleAlert}>
+        {show ? 'Click to hide Alert!' : 'Click to show Alert!'}
       </button>
       {show && (
         <div className="alert alert-danger alert-dismissible fade show" role="alert">
