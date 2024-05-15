@@ -1,22 +1,15 @@
-import Alert from "./components/Alert";
-import Button from "./components/Button";
-import { useState } from 'react';
+import React from 'react';
+import Alert from './components/Alert';
 
-
-function App() {
-  const [show, setShow] = useState(true);
-
-  if (show) {
-    return (
-      <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-        <Alert>Oh snap! You got an error!</Alert>
-        <p>
-        </p>
-      </Alert>
-    );
-  }
+const App: React.FC = () => {
   return (
-  <Button onClick={() => setShow(true)}>Show Alert</Button>
-);
+    <div className="App">
+      <header className="App-header">
+        <h1>Click Button For Alert</h1>
+        <Alert message="Alert! Alert! Alert!" />
+      </header>
+    </div>
+  );
 }
+
 export default App;

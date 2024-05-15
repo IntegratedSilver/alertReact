@@ -1,16 +1,29 @@
+import React, { useState } from 'react';
 
-interface AlertProps{
-   children:string
+interface AlertProps {
+  message: string;
 }
 
-const Alert = ({children}:AlertProps) => {
+const Alert: React.FC<AlertProps> = ({ message }) => {
+  const [show, setShow] = useState(false);
+
+  const toggleAlert = () => {
+    setShow(!show);
+  };
+
   return (
-    <>
-    <div className="alert alert-primary" role="alert">
-    {children}
+    <div>
+      <button className="btn btn-primary" onClick={toggleAlert}>
+        {show ? 'Hide' : 'Show'}
+      </button>
+      {show && (
+        <div className="alert alert-danger alert-dismissible fade show" role="alert">
+          {message}
+          <button type="button" className="btn-close" aria-label="Close" onClick={toggleAlert}></button>
+        </div>
+      )}
     </div>
-    </>
-  )
-}
+  );
+};
 
-export default Alert
+export default Alert;
